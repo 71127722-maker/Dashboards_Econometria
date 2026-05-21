@@ -1,3 +1,9 @@
+# =====================================
+# UNCP - FE - ECONOMETRIA I
+# Alumno: Villalva Cangahuala Nils
+# Limpiar Datos
+rm(list=ls())
+# =====================================
 install.packages("rsconnect")
 install.packages(c(
   "shiny", #para crear aplicaciones web interactivas en R.
