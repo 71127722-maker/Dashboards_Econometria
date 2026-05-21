@@ -32,7 +32,6 @@ library(rsconnect)
 # =========================================
 # DESCARGAR DATOS BANCO MUNDIAL
 # =========================================
-rsconnect::setAccountInfo(name='nils-villalva-250203', token='CD1FB5834E9324F245481576BDA3B5FF', secret='u8IxD923tFhpGcWphHziiKCwfnR8TNeuev4xBRYU')
 
 # Indicadores
 # NY.GDP.MKTP.CD = PIB
@@ -553,7 +552,7 @@ server <- function(input, output, session) {
       ) %>%
       
       formatRound(
-        columns = c("Desempleo", "CO2"),
+        columns = c("Desempleo", "co2_pc"),
         digits = 2
       )
     
@@ -561,13 +560,16 @@ server <- function(input, output, session) {
   
 }
 # =========================================
-# EJECUTAR APP
-# =========================================
+
+
+install.packages("rsconnect")
 library(rsconnect)
 
-deployApp(
-  appDir = "C:/Users/HP/Desktop/UNCP/UNCP 2026-10/ECONOMETRIA 1/dashboard_bm",
-  appPrimaryDoc = "app.R"
-)
+rsconnect::setAccountInfo(name='nils-villalva-250203', token='CD1FB5834E9324F245481576BDA3B5FF', secret='u8IxD923tFhpGcWphHziiKCwfnR8TNeuev4xBRYU')
+rsconnect::deployApp("D:/dashboard_bm")
+# EJECUTAR APP
+# =========================================
 shinyApp(ui, server)
+
+
 rsconnect::deployApp()
